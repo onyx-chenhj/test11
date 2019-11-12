@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".TestUIActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20-12"
+        android:textSize="12sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20-16"
+        android:textSize="16sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20-20"
+        android:textSize="20sp"
+        />
+
+     <com.android.systemui.view.ratingbar.RatingBarView
+         android:id="@+id/rating_bar_view_medium"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="10dp"
+         app:indicatorTextSize="12sp"
+         app:sdr_backgroundDrawable="@drawable/iget_ratingbar_background_medium"
+         app:sdr_progressDrawable="@drawable/iget_ratingbar_progress_medium"
+         />
+
+     <com.android.systemui.view.ratingbar.RatingBarView
+         android:id="@+id/rating_bar_view_larger"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="10dp"
+         app:indicatorTextSize="16sp"
+         app:sdr_backgroundDrawable="@drawable/iget_ratingbar_background_larger"
+         app:sdr_progressDrawable="@drawable/iget_ratingbar_progress_larger"
+         android:gravity="center"
+         />
+    <com.android.systemui.view.ratingbar.RatingBarView
+        android:id="@+id/rating_bar_view_test3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:indicatorTextSize="15sp"
+        app:sdr_backgroundDrawable="@drawable/iget_ratingbar_background_18x24_4"
+        app:sdr_progressDrawable="@drawable/iget_ratingbar_progress_18x24_4"
+        />
+
+    <com.android.systemui.view.ratingbar.RatingBarView
+        android:id="@+id/rating_bar_view_test4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:indicatorTextSize="15sp"
+        app:sdr_backgroundDrawable="@drawable/iget_ratingbar_background_30x30_13"
+        app:sdr_progressDrawable="@drawable/iget_ratingbar_progress_30x30_13"
+        />
+</LinearLayout>

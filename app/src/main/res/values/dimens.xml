@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="seek_bar_height">5dp</dimen>
+    <dimen name="seek_bar_corner_radius">3dp</dimen>
+    <dimen name="onyx_notification_seek_bar_thumb_image_size">21dp</dimen>
+    <dimen name="toggleslider_min_height">38dp</dimen>
+
+    <dimen name="onyx_dialog_button_icon_padding">2dp</dimen>
+
+</resources>
