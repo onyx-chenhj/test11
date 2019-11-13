@@ -149,12 +149,6 @@ public class RatingBarView extends RelativeLayout {
         }
     };
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        mIndicatorTextView.measure(widthMeasureSpec, heightMeasureSpec);
-    }
-
     private void refreshIndicatorLayout() {
         int index = mRatingBar.getProgress();
         int offset = (index -1 ) * mRatingBar.getStepWidth();
