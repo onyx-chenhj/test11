@@ -1,14 +1,12 @@
 package com.android.systemui.view.ratingbar;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -103,11 +101,16 @@ public class RatingBarView extends RelativeLayout {
     }
 
     private void updateIndicatorLocation() {
-        mLabelWidth = mIndicatorTextView.getWidth();
+        mLabelWidth = calculationLabelWidth();
+        mIndicatorTextView.setWidth(mLabelWidth);
         mLabelHeight = mIndicatorTextView.getHeight();
         mRatingBarLeft = mRatingBar.getLeft();
         mLabelTop = mIndicatorTextView.getTop();
         refreshIndicatorLayout();
+    }
+
+    private int calculationLabelWidth() {
+        return mRatingBar.getStepWidth() * 3;
     }
 
     public ShapeDrawableRatingBar getRatingBar() {
@@ -146,11 +149,22 @@ public class RatingBarView extends RelativeLayout {
         }
     };
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        mIndicatorTextView.measure(widthMeasureSpec, heightMeasureSpec);
+    }
+
     private void refreshIndicatorLayout() {
         int index = mRatingBar.getProgress();
-        int offset = index * mRatingBar.getStepWidth() - mRatingBar.getStepWidth() * 2 / 3;
+        int offset = (index -1 ) * mRatingBar.getStepWidth();
+        int extendLength = (calculationLabelWidth() - mRatingBar.getStepWidth()) / 2;
+        int left = mRatingBarLeft + offset - extendLength;
+        //int right = mRatingBarLeft + offset + mRatingBar.getStepWidth() + extendLength;
+        int right = left + mLabelWidth;
         mIndicatorTextView.setText(String.valueOf(index));
-        mIndicatorTextView.layout(mRatingBarLeft + offset, getHeight()/2 - mLabelHeight - 15, mRatingBarLeft + offset + mLabelWidth * 2, getHeight()/2 - 15);
         mIndicatorTextView.setVisibility(index == 0 ? View.INVISIBLE : View.VISIBLE);
+        mIndicatorTextView.layout(left, getHeight()/2 - mLabelHeight - 15, right, getHeight()/2 - 15);
+
     }
 }
