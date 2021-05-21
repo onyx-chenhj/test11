@@ -64,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:indicatorTextSize="15sp"
+        app:indicatorTextShow="false"
         app:sdr_backgroundDrawable="@drawable/iget_ratingbar_background_30x30_13"
         app:sdr_progressDrawable="@drawable/iget_ratingbar_progress_30x30_13"
         />
