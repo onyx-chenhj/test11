@@ -156,8 +156,9 @@ public class RatingBarView extends RelativeLayout {
         int left = mRatingBarLeft + offset - extendLength;
         //int right = mRatingBarLeft + offset + mRatingBar.getStepWidth() + extendLength;
         int right = left + mLabelWidth;
+        int visibility = (mIndicatorTextShow && index > 0) ? View.VISIBLE : View.INVISIBLE;
         mIndicatorTextView.setText(String.valueOf(index));
-        mIndicatorTextView.setVisibility(index == 0 ? View.INVISIBLE : View.VISIBLE);
+        mIndicatorTextView.setVisibility(visibility);
         mIndicatorTextView.layout(left, getHeight()/2 - mLabelHeight - 15, right, getHeight()/2 - 15);
 
     }
